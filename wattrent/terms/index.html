@@ -1,10 +1,20 @@
 <!doctype html>
-<html lang="zh-Hant-TW">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>WattRent — Terms of Service 服務條款</title>
   <meta name="description" content="WattRent mobile app terms of service. WattRent 行動應用程式的服務條款。" />
+  <script>
+    (function () {
+      try {
+        var lang = localStorage.getItem('wattrent.lang') || 'en';
+        var html = document.documentElement;
+        html.setAttribute('data-lang', lang);
+        html.setAttribute('lang', lang === 'zh-tw' ? 'zh-Hant-TW' : 'en');
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
@@ -23,9 +33,9 @@
       Effective date / 生效日：2026-05-31
     </p>
 
-    <div class="lang-switch">
-      <a class="active" href="#zh-tw">繁體中文</a>
-      <a href="#en">English</a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en" class="active">English</button>
+      <button type="button" data-set-lang="zh-tw">繁體中文</button>
     </div>
 
     <!-- =================== 繁體中文 =================== -->
@@ -265,5 +275,6 @@
       <a href="mailto:onepiece010938@gmail.com">onepiece010938@gmail.com</a>
     </footer>
   </div>
+  <script src="/assets/lang.js"></script>
 </body>
 </html>

@@ -80,6 +80,14 @@ li { margin: 0.35rem 0; }
 
 .muted { color: var(--muted); font-size: 0.95rem; }
 
+/* ----- Language toggle ----- */
+/* Default = English visible. Returning visitors who chose Chinese get the
+   data-lang="zh-tw" attribute set by the inline <head> script before paint. */
+section#en { display: block; }
+section#zh-tw { display: none; }
+html[data-lang="zh-tw"] section#en { display: none; }
+html[data-lang="zh-tw"] section#zh-tw { display: block; }
+
 .lang-switch {
   display: inline-flex;
   gap: 0.25rem;
@@ -91,13 +99,22 @@ li { margin: 0.35rem 0; }
   margin: 1rem 0 0.5rem;
 }
 
-.lang-switch a {
-  padding: 0.25rem 0.75rem;
+.lang-switch button {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.25rem 0.85rem;
   border-radius: 999px;
   color: var(--muted);
+  transition: background-color 0.15s, color 0.15s;
 }
 
-.lang-switch a.active {
+.lang-switch button:hover { color: var(--fg); }
+
+.lang-switch button.active {
   background: var(--accent);
   color: white;
   font-weight: 600;

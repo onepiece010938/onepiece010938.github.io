@@ -1,10 +1,20 @@
 <!doctype html>
-<html lang="zh-Hant-TW">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WattRent — 拍電表、算房租</title>
-  <meta name="description" content="WattRent 是一款讓房客拍電表、自動算電費、把帳單寄給房東的小工具 App。" />
+  <title>WattRent — Snap the meter, split the bill</title>
+  <meta name="description" content="WattRent is a small mobile app that lets renters snap their electricity meter, auto-calculate the bill, and email it to the landlord." />
+  <script>
+    (function () {
+      try {
+        var lang = localStorage.getItem('wattrent.lang') || 'en';
+        var html = document.documentElement;
+        html.setAttribute('data-lang', lang);
+        html.setAttribute('lang', lang === 'zh-tw' ? 'zh-Hant-TW' : 'en');
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
@@ -19,14 +29,14 @@
     </header>
 
     <h1>WattRent</h1>
-    <p class="muted">拍電表 → 算電費 → 寄帳單。一個人住的房客都需要的小工具。</p>
+    <p class="muted">Snap the meter → calculate the bill → email the landlord. A small tool every solo renter wants.</p>
 
-    <div class="lang-switch">
-      <a class="active" href="#zh-tw">繁體中文</a>
-      <a href="#en">English</a>
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-set-lang="en" class="active">English</button>
+      <button type="button" data-set-lang="zh-tw">繁體中文</button>
     </div>
 
-    <section id="zh-tw">
+    <section id="zh-tw" lang="zh-Hant-TW">
       <h2>它能幹嘛</h2>
       <ul>
         <li>📷 用手機拍電表 → AI 自動讀出數字</li>
@@ -49,7 +59,7 @@
       </ul>
     </section>
 
-    <section id="en">
+    <section id="en" lang="en">
       <h2>What it does</h2>
       <ul>
         <li>📷 Snap a photo of your electricity meter — AI reads the digits</li>
@@ -79,5 +89,6 @@
       <a href="mailto:onepiece010938@gmail.com">onepiece010938@gmail.com</a>
     </footer>
   </div>
+  <script src="/assets/lang.js"></script>
 </body>
 </html>
