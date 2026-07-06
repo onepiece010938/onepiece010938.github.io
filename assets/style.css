@@ -88,6 +88,13 @@ section#zh-tw { display: none; }
 html[data-lang="zh-tw"] section#en { display: none; }
 html[data-lang="zh-tw"] section#zh-tw { display: block; }
 
+/* The Account & Data Deletion card keeps a single, always-present
+   #delete-account anchor (the URL submitted to Google Play), but its two
+   language halves follow the same toggle as the rest of the page. */
+#delete-account > [lang="zh-Hant-TW"] { display: none; }
+html[data-lang="zh-tw"] #delete-account > [lang="en"] { display: none; }
+html[data-lang="zh-tw"] #delete-account > [lang="zh-Hant-TW"] { display: block; }
+
 .lang-switch {
   display: inline-flex;
   gap: 0.25rem;
